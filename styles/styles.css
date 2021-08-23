@@ -1,0 +1,257 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('../src/imgs/background/background.gif');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.pokemon-card {
+  min-width: 320px;
+  min-height: 500px;
+  margin: 2% auto auto auto;
+}
+
+div.card-body {
+  background-size: cover;
+  border: 15px solid #e7c300;
+  border-radius: 3%;
+  height: 500px;
+  width: 320px; 
+}
+
+div.card-body-water {
+  background: url("../src/imgs/cards/textures/agua.png") no-repeat;
+}
+
+div.card-body-grass {
+  background: url("../src/imgs/cards/textures/planta.png") no-repeat;
+}
+
+div.card-body-electric {
+  background: url("../src/imgs/cards/textures/electrico.png") no-repeat;
+}
+
+div.card-body-psychic {
+  background: url("../src/imgs/cards/textures/psiquico.png") no-repeat;
+}
+
+div.card-body-fighting,
+div.card-body-ground {
+  background: url("../src/imgs/cards/textures/lucha.png") no-repeat;
+}
+
+div.card-body-fire {
+  background: url("../src/imgs/cards/textures/fuego.png") no-repeat;
+}
+
+div.card-body-dragon {
+  background: url("../src/imgs/cards/textures/dragon.png") no-repeat;
+}
+
+div.card-body-ice {
+  background: url("../src/imgs/cards/textures/hielo.png") no-repeat;
+}
+
+div.card-body-rock {
+  background: url("../src/imgs/cards/textures/roca.png") no-repeat;
+}
+
+div.card-body-bug {
+  background: url("../src/imgs/cards/textures/bug.png") no-repeat;
+}
+
+div.card-body-normal {
+  background: url("../src/imgs/cards/textures/normal.png") no-repeat;
+}
+
+div.card-body-poison {
+  background: url("../src/imgs/cards/textures/veneno.png") no-repeat;
+}
+
+div.card-body-ghost {
+  background: url("../src/imgs/cards/textures/ghost.png") no-repeat;
+}
+
+div.card-body-fairy {
+  background: url("../src/imgs/cards/textures/fairy.png") no-repeat;
+}
+
+div.card-body div.header {
+  margin-bottom: 2px; 
+}
+
+div.card-body div.header p.basic {
+  font-size: .5rem;
+  font-weight: bold;
+  margin: -4% 0 0 5%; 
+}
+
+div.card-body div.header div.name-health {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 5%; 
+}
+
+div.card-body div.header div.name-health p {
+  margin: 0; 
+}
+
+div.card-body div.header div.name-health p.name {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+div.card-body div.header div.name-health div.floatRight {
+  align-items: center;
+  display: flex; 
+}
+
+div.card-body div.header div.name-health div.floatRight p.health {
+  color: red;
+  font-size: 1.25rem;
+  margin-right: 3px; 
+}
+
+div.card-body div.header div.name-health div.floatRight img {
+  margin: 0;
+  width: 18px; 
+}
+
+div.card-body div.pokemon {
+  text-align: center; 
+}
+
+div.card-body div.pokemon img {
+  border: 10px solid #e7c300;
+  box-shadow: 1px 6px 12px -2px black;
+  width: 90%; 
+}
+
+div.card-body div.stats {
+  background-color: #e7c300;
+  font-size: .65rem;
+  white-space: nowrap;
+  margin: 10px auto 3px auto;
+  width: 70%;
+  text-align: center; 
+}
+
+div.card-body div.stats p {
+  font-style: italic; 
+}
+
+div.card-body div.attacks hr {
+  border: 1px solid black;
+  margin: 0 auto;
+  width: 95%; 
+}
+
+div.card-body div.attacks div.specific-attack {
+  align-items: center;
+  display: inline-grid;
+  grid-template-columns: 1fr 5fr 1fr; 
+}
+
+div.card-body div.attacks div.specific-attack div.energy {
+  text-align: center; 
+}
+
+div.card-body div.attacks div.specific-attack div.energy img {
+    width: 18px; 
+}
+
+div.card-body div.attacks div.specific-attack div.attack-description h2 {
+  display: inline;
+  font-family: 'Francois One', sans-serif;
+  font-size: 1rem;
+  float: left;
+  margin: 0 5px 0 0; 
+}
+
+div.card-body div.attacks div.specific-attack div.attack-description p {
+  font-size: .75rem;
+  margin: 0; 
+}
+
+div.card-body div.attacks div.specific-attack div.attack-description p span.attack-name {
+  font-family: 'Francois One', sans-serif;
+  font-size: 1rem;
+  font-weight: bold; 
+}
+
+div.card-body div.attacks div.specific-attack div.power {
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+div.card-body div.attributes {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  width: 100%; 
+}
+
+div.card-body div.attributes p {
+  font-size: .75rem;
+  font-weight: bold;
+  margin: 0; 
+}
+
+div.card-body div.attributes img {
+  width: 15px; 
+}
+
+div.card-body div.description {
+  border: 2px solid #e7c300;
+  font-size: .5rem;
+  margin: auto;
+  padding: 0 5px;
+  width: 90%; 
+}
+
+div.card-body div.description p {
+  font-style: italic;
+  font-weight: bold;
+  margin: 0; 
+}
+
+div.card-body div.footer {
+  font-size: 8px;
+  padding: 0 1px;
+  text-align: center;
+  width: 100%; 
+}
+
+.pokemons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.prev-btn,
+.next-btn {
+  background: linear-gradient(to bottom, #ED1C24 0%, #EE2F36 100%);
+  border-radius: 4px;
+  color: white;
+  border: none;
+  width: 90px;
+  margin-left: 5px;
+  margin-right: 5px;
+  box-shadow: 0 8px 0 #E21219;
+}
+
+.fa-long-arrow-alt-left,
+.fa-long-arrow-alt-right {
+  font-size: 1.3em;
+  font-weight: bold;
+}

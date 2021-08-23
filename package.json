@@ -1,0 +1,25 @@
+{
+  "name": "pokedex",
+  "version": "1.0.0",
+  "description": "Pokedex",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Genebson/pokedex.git"
+  },
+  "author": "Mauricio Genebrieres",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Genebson/pokedex/issues"
+  },
+  "homepage": "https://github.com/Genebson/pokedex#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.0"
+  },
+  "devDependencies": {
+    "cypress": "^8.2.0"
+  }
+}
