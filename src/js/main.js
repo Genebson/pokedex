@@ -127,8 +127,6 @@ const createPokemonCard = (pokemon) => {
 
 	pokemonContainer.innerHTML = pokemonInnerHTML
 	$pokemonCard.appendChild(pokemonContainer)
-	console.log($pokemonCard);
-	console.log(pokemonContainer);
 }
 
 $nextBtn.addEventListener('click', onNextPageClick)
