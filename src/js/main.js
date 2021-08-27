@@ -5,8 +5,8 @@ const $prevBtn = document.querySelector('#prev-btn')
 const $nextBtn = document.querySelector('#next-btn')
 let currentPage = 1;
 let previousPage;
-let totalPages;
 let pokemonsPerPage = 12
+let totalPages = Math.ceil(151 / pokemonsPerPage)
 
 function getPokemon() {
 	fetch('https://pokeapi.co/api/v2/pokemon?limit=12')
@@ -40,13 +40,43 @@ const getPokemonEnergy = (pokemon) => {
 const onNextPageClick = () => {
 	currentPage++
 	const offSetNumber = currentPage * pokemonsPerPage - pokemonsPerPage
+	const fetchLimit = currentPage === totalPages ? 7 : 12
+	$container.innerHTML = ''
 
-	for (let i = offSetNumber + 1; i < offSetNumber; i++) {
-		console.log(offSetNumber);
+	for (let i = offSetNumber + 1; i <= offSetNumber + pokemonsPerPage; i++) {
 		const pokemonCardContainer = document.createElement('div')
+		const skeletonDiv = document.createElement('div')
+		skeletonDiv.className = 'skeleton'
 		pokemonCardContainer.className = 'pokemon-card'
 		pokemonCardContainer.id = `pokemon-id-${i}`
 		$container.appendChild(pokemonCardContainer)
+		pokemonCardContainer.appendChild(skeletonDiv)
+	}
+
+	fetch(`https://pokeapi.co/api/v2/pokemon?limit=${fetchLimit}&offset=${offSetNumber}`)
+		.then(response => response.json())
+		.then(allPokemons => {
+			allPokemons.results.forEach(pokemon => {
+				fetchPokemonData(pokemon)
+			})
+		})
+
+	hideButtons()
+}
+
+const onPreviousPageClick = () => {
+	currentPage--
+	const offSetNumber = currentPage * pokemonsPerPage - pokemonsPerPage
+	$container.innerHTML = ''
+
+	for (let i = offSetNumber + 1; i <= offSetNumber + pokemonsPerPage; i++) {
+		const pokemonCardContainer = document.createElement('div')
+		const skeletonDiv = document.createElement('div')
+		skeletonDiv.className = 'skeleton'
+		pokemonCardContainer.className = 'pokemon-card'
+		pokemonCardContainer.id = `pokemon-id-${i}`
+		$container.appendChild(pokemonCardContainer)
+		pokemonCardContainer.appendChild(skeletonDiv)
 	}
 
 	fetch(`https://pokeapi.co/api/v2/pokemon?limit=12&offset=${offSetNumber}`)
@@ -56,10 +86,26 @@ const onNextPageClick = () => {
 				fetchPokemonData(pokemon)
 			})
 		})
+
+	hideButtons()
 }
 
-const onPreviousPageClick = () => {
+const hideButtons = () => {
+	if (currentPage === 1) {
+		$prevBtn.style.display = 'none'
+	}
 
+	if (currentPage === 2) {
+		$prevBtn.style.display = 'inline-block'
+	} else if (currentPage === 13) {
+		$nextBtn.style.display = 'none'
+	}
+
+	if (currentPage === 13) {
+		$nextBtn.style.display = 'none'
+	} else if (currentPage < 13) {
+		$nextBtn.style.display = 'inline-block'
+	}
 }
 
 const createPokemonCard = (pokemon) => {
@@ -81,7 +127,7 @@ const createPokemonCard = (pokemon) => {
 				</div>
 			</div>
 			<div class="pokemon">
-				<img src="${sprites.other['official-artwork'].front_default}" alt="${name}">
+				<img src="${sprites.other['official-artwork'].front_default}" alt="${name}" class="pokemon-img">
 			</div>
 			<div class="stats">
 				<span>Height: ${height}, Weight: ${weight}lbs.</span>
@@ -130,4 +176,5 @@ const createPokemonCard = (pokemon) => {
 }
 
 $nextBtn.addEventListener('click', onNextPageClick)
+$prevBtn.addEventListener('click', onPreviousPageClick)
 getPokemon()
