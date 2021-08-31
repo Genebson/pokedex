@@ -178,12 +178,12 @@ const createPokemonCard = (pokemon) => {
 	const $pokemonCard = document.getElementById(`pokemon-id-${id}`)
 
 	pokemonContainer.innerHTML = pokemonInnerHTML
+	$pokemonCard.firstElementChild.classList.add('rotate')
 
 	setTimeout(() => {
 		$pokemonCard.innerHTML = ''
 		$pokemonCard.appendChild(pokemonContainer)
 	}, 300);
-	$pokemonCard.firstElementChild.classList.add('rotate')
 }
 
 $nextBtn.addEventListener('click', onNextPageClick)
