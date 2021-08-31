@@ -58,10 +58,12 @@ const onNextPageClick = () => {
 		.then(response => response.json())
 		.then(allPokemons => {
 			allPokemons.results.forEach(pokemon => {
-				fetchPokemonData(pokemon)
+				setTimeout(() => {
+					fetchPokemonData(pokemon)
+				}, 500);
 			})
 		})
-
+	window.scrollTo(0, 0)
 	hideButtons()
 }
 
@@ -85,10 +87,12 @@ const onPreviousPageClick = () => {
 		.then(response => response.json())
 		.then(allPokemons => {
 			allPokemons.results.forEach(pokemon => {
-				fetchPokemonData(pokemon)
+				setTimeout(() => {
+					fetchPokemonData(pokemon)
+				}, 500);
 			})
 		})
-
+	window.scrollTo(0, 0)
 	hideButtons()
 }
 
@@ -174,8 +178,12 @@ const createPokemonCard = (pokemon) => {
 	const $pokemonCard = document.getElementById(`pokemon-id-${id}`)
 
 	pokemonContainer.innerHTML = pokemonInnerHTML
-	$pokemonCard.innerHTML = ''
-	$pokemonCard.appendChild(pokemonContainer)
+
+	setTimeout(() => {
+		$pokemonCard.innerHTML = ''
+		$pokemonCard.appendChild(pokemonContainer)
+	}, 300);
+	$pokemonCard.firstElementChild.classList.add('rotate')
 }
 
 $nextBtn.addEventListener('click', onNextPageClick)
