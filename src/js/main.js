@@ -43,10 +43,11 @@ const onNextPageClick = () => {
 	const fetchLimit = currentPage === totalPages ? 7 : 12
 	$container.innerHTML = ''
 
-	for (let i = offSetNumber + 1; i <= offSetNumber + pokemonsPerPage; i++) {
+	for (let i = offSetNumber + 1; i <= offSetNumber + fetchLimit; i++) {
 		const pokemonCardContainer = document.createElement('div')
 		const skeletonDiv = document.createElement('div')
 		skeletonDiv.className = 'skeleton'
+		skeletonDiv.style.backgroundImage = `url('./src/imgs/cards/card/card-backside.png')`
 		pokemonCardContainer.className = 'pokemon-card'
 		pokemonCardContainer.id = `pokemon-id-${i}`
 		$container.appendChild(pokemonCardContainer)
@@ -73,6 +74,7 @@ const onPreviousPageClick = () => {
 		const pokemonCardContainer = document.createElement('div')
 		const skeletonDiv = document.createElement('div')
 		skeletonDiv.className = 'skeleton'
+		skeletonDiv.style.backgroundImage = `url('./src/imgs/cards/card/card-backside.png')`
 		pokemonCardContainer.className = 'pokemon-card'
 		pokemonCardContainer.id = `pokemon-id-${i}`
 		$container.appendChild(pokemonCardContainer)
@@ -122,7 +124,7 @@ const createPokemonCard = (pokemon) => {
 					<p class="name">${name.charAt(0).toUpperCase()}${name.slice(1)}</p>
 					<div class="floatRight">
 						<p class="health">${stats[0].base_stat}${stats[0].stat.name.toUpperCase()}</p>
-						<img src="${pokemonEnergy}" alt="Water Energy Symbol">
+						<img src="${pokemonEnergy}">
 					</div>
 				</div>
 			</div>
@@ -135,7 +137,7 @@ const createPokemonCard = (pokemon) => {
 			<div class="attacks">
 				<div class="specific-attack">
 					<div class="energy">
-						<img src="${pokemonEnergy}" alt="Water Energy Symbol">
+						<img src="${pokemonEnergy}">
 					</div>
 					<div class="attack-description">
 						<p><span class="attack-name">${moves[0].move.name.charAt(0).toUpperCase()}${moves[0].move.name.slice(1)}</span> Flip a coin. If heads, the Defending Pok&eacutemon is now
@@ -149,14 +151,14 @@ const createPokemonCard = (pokemon) => {
 			<div class="attributes">
 				<div class="weakness">
 					<p>weakness</p>
-					<img src="https://jcr08.github.io/pokemon-card/images/electric-energy.png" alt="Electric Energy Symbol">
+					<img src="./src/imgs/cards/energy/electric.png" alt="Electric Energy Symbol">
 				</div>
 				<div class="resistance">
 					<p>resistance</p>
 				</div>
 				<div class="retreat-cost">
 					<p>retreat cost</p>
-					<img src="https://jcr08.github.io/pokemon-card/images/normal-energy.png" alt="Normal Energy Symbol">
+					<img src="./src/imgs/cards/energy/normal.png" alt="Normal Energy Symbol">
 				</div>
 			</div>
 			<div class="description">
@@ -172,6 +174,7 @@ const createPokemonCard = (pokemon) => {
 	const $pokemonCard = document.getElementById(`pokemon-id-${id}`)
 
 	pokemonContainer.innerHTML = pokemonInnerHTML
+	$pokemonCard.innerHTML = ''
 	$pokemonCard.appendChild(pokemonContainer)
 }
 
