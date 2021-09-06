@@ -1,10 +1,7 @@
 const $container = document.querySelector('.pokemons')
-const $cardBody = document.querySelectorAll('.card-body')
-const $energySymbol = document.querySelectorAll('.energy-symbol')
 const $prevBtn = document.querySelector('#prev-btn')
 const $nextBtn = document.querySelector('#next-btn')
 let currentPage = 1;
-let previousPage;
 let pokemonsPerPage = 12
 let totalPages = Math.ceil(151 / pokemonsPerPage)
 
