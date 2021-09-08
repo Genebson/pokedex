@@ -1,4 +1,4 @@
-import { createPokemonCard } from '../ui/ui';
+import { createPokemonCard } from '../ui/ui.js';
 
 export const getPokemonData = (pokemon) => {
   const { url } = pokemon;

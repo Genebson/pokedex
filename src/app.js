@@ -1,12 +1,12 @@
-import { getPokemon, getPokemonData } from './services/service';
-import { onNextPageClick, onPreviousPageClick } from './pagination/pagination';
+import { getPokemon, getPokemonData } from './services/service.js';
+import { onNextPageClick, onPreviousPageClick } from './pagination/pagination.js';
 
-const setupHandler = () => {
+const setupHandler = async () => {
   getPokemon();
   getPokemonData();
 };
 
-const paginationHandler = () => {
+const paginationHandler = async () => {
   onNextPageClick();
   onPreviousPageClick();
 };

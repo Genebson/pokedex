@@ -1,4 +1,4 @@
-import { getPokemonData } from '../services/service';
+import { fetchNextPagination, fetchPrevPagination } from '../utilities/utilities.js';
 
 const $container = document.querySelector('.pokemons');
 const $prevBtn = document.querySelector('#prev-btn');
@@ -41,16 +41,16 @@ export const onNextPageClick = () => {
     $container.appendChild(pokemonCardContainer);
     pokemonCardContainer.appendChild(skeletonDiv);
   }
-
-  fetch(`https://pokeapi.co/api/v2/pokemon?limit=${fetchLimit}&offset=${offSetNumber}`)
-    .then((response) => response.json())
-    .then((allPokemons) => {
-      allPokemons.results.forEach((pokemon) => {
-        setTimeout(() => {
-          getPokemonData(pokemon);
-        }, 500);
-      });
-    });
+  fetchNextPagination();
+  // fetch(`https://pokeapi.co/api/v2/pokemon?limit=${fetchLimit}&offset=${offSetNumber}`)
+  //   .then((response) => response.json())
+  //   .then((allPokemons) => {
+  //     allPokemons.results.forEach((pokemon) => {
+  //       setTimeout(() => {
+  //         getPokemonData(pokemon);
+  //       }, 500);
+  //     });
+  //   });
   window.scrollTo(0, 0);
   hideButtons();
 };
@@ -70,16 +70,16 @@ export const onPreviousPageClick = () => {
     $container.appendChild(pokemonCardContainer);
     pokemonCardContainer.appendChild(skeletonDiv);
   }
-
-  fetch(`https://pokeapi.co/api/v2/pokemon?limit=12&offset=${offSetNumber}`)
-    .then((response) => response.json())
-    .then((allPokemons) => {
-      allPokemons.results.forEach((pokemon) => {
-        setTimeout(() => {
-          getPokemonData(pokemon);
-        }, 500);
-      });
-    });
+  fetchPrevPagination();
+  // fetch(`https://pokeapi.co/api/v2/pokemon?limit=12&offset=${offSetNumber}`)
+  //   .then((response) => response.json())
+  //   .then((allPokemons) => {
+  //     allPokemons.results.forEach((pokemon) => {
+  //       setTimeout(() => {
+  //         getPokemonData(pokemon);
+  //       }, 500);
+  //     });
+  //   });
   window.scrollTo(0, 0);
   hideButtons();
 };
