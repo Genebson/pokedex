@@ -42,15 +42,6 @@ export const onNextPageClick = () => {
     pokemonCardContainer.appendChild(skeletonDiv);
   }
   fetchNextPagination();
-  // fetch(`https://pokeapi.co/api/v2/pokemon?limit=${fetchLimit}&offset=${offSetNumber}`)
-  //   .then((response) => response.json())
-  //   .then((allPokemons) => {
-  //     allPokemons.results.forEach((pokemon) => {
-  //       setTimeout(() => {
-  //         getPokemonData(pokemon);
-  //       }, 500);
-  //     });
-  //   });
   window.scrollTo(0, 0);
   hideButtons();
 };
@@ -71,18 +62,13 @@ export const onPreviousPageClick = () => {
     pokemonCardContainer.appendChild(skeletonDiv);
   }
   fetchPrevPagination();
-  // fetch(`https://pokeapi.co/api/v2/pokemon?limit=12&offset=${offSetNumber}`)
-  //   .then((response) => response.json())
-  //   .then((allPokemons) => {
-  //     allPokemons.results.forEach((pokemon) => {
-  //       setTimeout(() => {
-  //         getPokemonData(pokemon);
-  //       }, 500);
-  //     });
-  //   });
   window.scrollTo(0, 0);
   hideButtons();
 };
+export const prevPage = () => {
+  $nextBtn.addEventListener('click', onNextPageClick);
+};
 
-$nextBtn.addEventListener('click', onNextPageClick);
-$prevBtn.addEventListener('click', onPreviousPageClick);
+export const nextPage = () => {
+  $prevBtn.addEventListener('click', onPreviousPageClick);
+};

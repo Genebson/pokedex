@@ -9,6 +9,7 @@ export const createPokemonEnergy = (pokemon) => {
 };
 
 export const createPokemonCard = (pokemon) => {
+  console.log(pokemon);
   const pokemonBackground = createPokemonType(pokemon);
   const pokemonEnergy = createPokemonEnergy(pokemon);
   const {
@@ -75,6 +76,7 @@ export const createPokemonCard = (pokemon) => {
 
   pokemonContainer.innerHTML = pokemonInnerHTML;
   $pokemonCard.firstElementChild.classList.add('rotate');
+  console.log($pokemonCard.firstElementChild);
 
   setTimeout(() => {
     $pokemonCard.innerHTML = '';
