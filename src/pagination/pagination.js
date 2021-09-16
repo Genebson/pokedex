@@ -41,7 +41,7 @@ export const onNextPageClick = () => {
     $container.appendChild(pokemonCardContainer);
     pokemonCardContainer.appendChild(skeletonDiv);
   }
-  fetchNextPagination();
+  fetchNextPagination(fetchLimit, offSetNumber);
   window.scrollTo(0, 0);
   hideButtons();
 };
@@ -61,7 +61,7 @@ export const onPreviousPageClick = () => {
     $container.appendChild(pokemonCardContainer);
     pokemonCardContainer.appendChild(skeletonDiv);
   }
-  fetchPrevPagination();
+  fetchPrevPagination(offSetNumber);
   window.scrollTo(0, 0);
   hideButtons();
 };
