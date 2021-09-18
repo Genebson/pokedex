@@ -1,14 +1,14 @@
 import { getPokemon } from './services/service.js';
 import { prevPage, nextPage } from './pagination/pagination.js';
 
-async function blabla() {
+function setupHandler() {
   getPokemon();
 }
 
-async function blablabla() {
+function paginationHandler() {
   prevPage();
   nextPage();
 }
 
-blabla();
-blablabla();
+setupHandler();
+paginationHandler();
